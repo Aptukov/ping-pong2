@@ -38,17 +38,17 @@ finish=False
 clock=time.Clock()
 FPS=60
 
-Rocket1=Player("Rocket1.png", 30, 200, 4, 30, 150)
-Rocket2=Player("Rocket2.png", 420, 200, 4, 30, 150)
-Ball=GameSprite("Ball.png", 250, 250, 5,  50, 50)
+Rocket1=Player("Rocket1.png", 30, 200, 4, 50, 150)
+Rocket2=Player("Rocket2.png", 520, 200, 4, 50, 150)
+Ball=GameSprite("Ball.png", 250, 250, 4,  50, 50)
 
 font.init()
-font = font.Font(None, 95)
-lose1=font.render("Player 1 LOSE!", True, [100, 0, 0])
-lose2=font.render("Player 2 LOSE!", True, [100, 0, 0])
+font = font.Font(None, 35)
+lose1=font.render("Player 1 LOSE!", True, [180, 0, 0])
+lose2=font.render("Player 2 LOSE!", True, [180, 0, 0])
 
-speed_x=5
-speed_y=5
+speed_x=3
+speed_y=3
 
 while game:
     for e in event.get():
@@ -58,8 +58,8 @@ while game:
         window.fill(Back)
         Rocket1.update()
         Rocket2.update_1()
-        Ball.rect_x=speed_x
-        Ball.rect_y=speed_y
+        Ball.rect.x+=speed_x
+        Ball.rect.y+=speed_y
         if sprite.collide_rect(Rocket1, Ball) or sprite.collide_rect(Rocket2, Ball):
             speed_x *= -1
             speed_y *= 1
